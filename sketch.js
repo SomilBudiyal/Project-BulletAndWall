@@ -17,7 +17,7 @@ function setup() {
 }
 
 function draw() {
-  background("black");
+  background("yellow");
    wall.shapeColor="grey"; 
    bullet.shapeColor="white";
    
@@ -26,11 +26,11 @@ if(hasCollided(bullet,wall)){
      damage = 0.5 * weight * speed * speed/(thickness *thickness *thickness);
      
     if(damage>10){
-      wall.shapeColor=color(225,0,0); 
+      wall.shapeColor="red"; 
     } 
 
    if(damag<10){
-     wall.shapeColor=color(0,225,0);
+     wall.shapeColor="green";
    } 
 }
 
@@ -39,9 +39,9 @@ if(hasCollided(bullet,wall)){
 
 function hasCollided(Lbullet,Lwall){
     bulletRightEdge=Lbullet.x + Lbullet.width;
-    wallLeftEdge=wall.x
+   wallLeftEdge=wall.x
   if(bulletRightEdge>=wallLeftEdge){
-      return true;
+     // return true;
   }
   return false;
 }
