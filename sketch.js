@@ -7,17 +7,16 @@ var damage;
 function setup() {
   createCanvas(1600,400);
   
+// creating the properties;
+thickness=random(22,83);
+weight=random(30,52);
+speed=random(203,322);
+
  //creating the wall; 
   wall=createSprite(1500, 200, thickness, height/2);
 
 //creating the bullet; 
   bullet=createSprite(50,200,50,20);
-
-// creating the properties;
-  thickness=random(98,200);
-  weight=random(30,52);
-  speed=random(103,122);
-
   bullet.velocityX = speed;
 }
 
@@ -31,6 +30,7 @@ function draw() {
  
  //giving condition for damaging the wall;  
 if(hasCollided(bullet,wall)){
+  bullet.velocityX = 0;
   //giving the damage;
   var damage = 0.5 * weight * speed * speed/(thickness * thickness * thickness);
 
@@ -52,7 +52,6 @@ function hasCollided(Rbullet,Lwall){
   bulletRightEdge=Rbullet.x + Rbullet.width;
   wallLeftEdge=Lwall.x
   if(bulletRightEdge>=wallLeftEdge){
-    bullet.velocityX = 0;
      return true;
   }
   return false;
